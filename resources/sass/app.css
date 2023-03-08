@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+}
+
+a:-webkit-any-link {
+  text-decoration: none !important;
+}
+
+body {
+  background: #f6f6f6;
+}
+
+.container {
+  max-width: 1200rem;
+  width: 100%;
+  padding: 0 15rem;
+  margin: 0 auto;
+}
+
+.btn-green {
+  background: #69aa1f;
+  color: white;
+  border-radius: 8rem;
+  padding: 5rem 12rem;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s;
+  outline: #69aa1f;
+}
+.btn-green:hover {
+  background: #578d14;
+}
+
+/*# sourceMappingURL=app.css.map */
