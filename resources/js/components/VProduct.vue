@@ -5,8 +5,8 @@
         <div className="container">
             <div className="product-item__title">{{ title }}</div>
             <div className="product-item__desc">{{ desc }}</div>
-            <div className="product-item__desc">{{ price }} ₽</div>
-            <button className="btn btn-green">Заказать</button>
+            <div className="product-item__price">{{ price }} ₽</div>
+            <button className="btn btn-green" @click="zakaz">Подробнее</button>
         </div>
     </div>
 </template>
@@ -20,6 +20,12 @@ export default {
         desc: String,
         price: String,
         image: String,
+    },
+
+    methods: {
+        zakaz() {
+            // window.alert(1)
+        }
     }
 }
 </script>
@@ -50,6 +56,12 @@ export default {
         &__desc
             font-size: 17rem
             font-weight: 500
+            color: #333333
+
+        &__price
+            margin-top: 10rem
+            font-size: 21rem
+            font-weight: 700
             color: #333333
 
 .btn

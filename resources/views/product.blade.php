@@ -1,9 +1,8 @@
 @extends('layout')
 
 @section('content')
-    <v-slider></v-slider>
-    <v-products is-index="True">
-        @foreach($products as $key => $data)
+    <v-products>
+        @foreach($pr as $key => $data)
             <a href="/product?id={{ $data->id }}" style="color: #000">
                 <v-product
                     title="{{ $data->title }}"
@@ -14,4 +13,10 @@
             </a>
         @endforeach
     </v-products>
+
+    <form method="get" action="/set_images" enctype="multipart/form-data">
+        @csrf
+        <input type="file" name="image" id="image" alt="">
+        <button type="submit">Push</button>
+    </form>
 @endsection

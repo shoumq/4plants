@@ -2,7 +2,7 @@
     <div :class="{white: isIndex}">
         <div class="container">
             <div class="products-title" v-if="isIndex">Все товары</div>
-            <div class="products-title" v-if="isSearch">Найдено по запросу "{{ q }}"</div>
+            <div class="products-title" v-if="isSearch">Найдено по запросу "{{ q }}":</div>
             <div class="product-flex">
                 <slot></slot>
             </div>
