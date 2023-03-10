@@ -10,17 +10,6 @@ use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
 {
-    public function setUsers(): bool|string
-    {
-        $users = array(
-            "name" => "Andrey",
-            "email" => "lae345@mail.ru",
-            "password" => "Andrew000",
-        );
-
-        return json_encode($users);
-    }
-
 
     public function index()
     {
@@ -38,7 +27,8 @@ class MainController extends Controller
     public function product(Request $request)
     {
         $pr = Product::where('id', $request->id)->get();
-        return view('product', compact('pr'));
+        $image = Image::where('id_product', $request->id)->get();
+        return view('product', compact('pr', 'image'));
     }
 
     public function create() {

@@ -40,4 +40,62 @@ body {
   text-align: center;
 }
 
+.admin * {
+  font-size: 18rem;
+}
+
+.product {
+  margin-top: 80rem;
+}
+.product-flex {
+  display: flex;
+  margin-top: 80rem;
+  gap: 70rem;
+}
+.product-slider {
+  width: 500rem;
+}
+.product-title {
+  font-size: 35rem;
+  font-weight: 500;
+  margin-bottom: 20rem;
+}
+.product-desc {
+  font-size: 20rem;
+  font-weight: 400;
+  margin-bottom: 20rem;
+}
+.product-price {
+  font-size: 30rem;
+  font-weight: 500;
+}
+.product-kolvo {
+  display: block;
+  margin-bottom: 20rem;
+}
+.product-kolvo * {
+  display: block;
+}
+.product-kolvo label {
+  font-size: 18rem;
+}
+.product-img {
+  width: 500rem !important;
+  object-fit: cover !important;
+  height: 360rem !important;
+}
+.product-img_mini {
+  width: 100% !important;
+  object-fit: cover !important;
+  height: 100rem !important;
+}
+
+.swiper {
+  padding: 0 !important;
+}
+
+.mySwiper {
+  margin-top: 5rem;
+}
+
 /*# sourceMappingURL=style.css.map */

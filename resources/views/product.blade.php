@@ -1,22 +1,16 @@
 @extends('layout')
 
 @section('content')
-    <v-products>
-        @foreach($pr as $key => $data)
-            <a href="/product?id={{ $data->id }}" style="color: #000">
-                <v-product
-                    title="{{ $data->title }}"
-                    desc="{{ $data->desc }}"
-                    image="{{ $data->image }}"
-                    price="{{ $data->price }}">
-                </v-product>
-            </a>
-        @endforeach
-    </v-products>
-
-    <form method="get" action="/set_images" enctype="multipart/form-data">
-        @csrf
-        <input type="file" name="image" id="image" alt="">
-        <button type="submit">Push</button>
-    </form>
+    <div class="container product">
+        <div class="product-flex">
+            <div class="product-slider">
+                <v-product-slider data-arr="{{ json_encode($image) }}"></v-product-slider>
+            </div>
+            <v-product-info
+                title="{{ $pr[0]->title }}"
+                desc="{{ $pr[0]->desc }}"
+                price="{{ $pr[0]->price }}">
+            </v-product-info>
+        </div>
+    </div>
 @endsection

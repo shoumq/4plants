@@ -14,5 +14,7 @@ Route::get('/', [App\Http\Controllers\MainController::class, 'index'])->name('in
 Route::get('/search', [App\Http\Controllers\MainController::class, 'search']);
 Route::get('/product', [App\Http\Controllers\MainController::class, 'product']);
 
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index']);
+
 Route::get('/setimages', [App\Http\Controllers\MainController::class, 'create']);
 Route::post('/setimages', [App\Http\Controllers\MainController::class, 'setImages']);
