@@ -18,16 +18,19 @@
                     </button>
                 </form>
 
-                <a href="tel:{{phone}}" class="phone">{{ phone }}</a>
+                <a href="/profile" class="phone">{{ userName }}</a>
             </div>
         </div>
     </div>
 
     <div class="header-under">
         <div class="container">
-            <a href="#" class="header-under__item">Товары</a>
-            <a href="#" class="header-under__item">О нас</a>
-            <a href="#" class="header-under__item">Контакты</a>
+            <div class="c1">
+                <a href="#" class="header-under__item">Товары</a>
+                <a href="#" class="header-under__item">О нас</a>
+                <a href="#" class="header-under__item">Контакты</a>
+            </div>
+            <a href="tel:{{phone}}" class="phone">{{ phone }}</a>
         </div>
     </div>
 </template>
@@ -39,7 +42,8 @@ export default {
     props: {
         logo: String,
         app_name: String,
-        phone: String
+        phone: String,
+        userName: String,
     }
 }
 </script>
@@ -115,7 +119,11 @@ export default {
 
     .container
         display: flex
-        gap: 40rem
+        justify-content: space-between
+
+        .c1
+            display: flex
+            gap: 40rem
 
     &__item
         font-size: 20rem

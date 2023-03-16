@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<div class="container admin">
+<div class="container login">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -58,7 +58,7 @@
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn btn-link fs" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
@@ -71,9 +71,3 @@
     </div>
 </div>
 @endsection
-<script>
-    import ExampleComponent from "@/components/ExampleComponent.vue";
-    export default {
-        components: {ExampleComponent}
-    }
-</script>

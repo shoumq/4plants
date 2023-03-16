@@ -2,8 +2,8 @@
     <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff;" class="swiper mySwiper2">
         <div class="swiper-wrapper">
             <div class="swiper-slide" v-for="(item, index) in dataArrRet" :key="index">
-                <a :href="'storage/images/' + item.name">
-                    <img :src="'storage/images/' + item.name" class="product-img"/>
+                <a :href="'/storage/images/' + item.name">
+                    <img :src="'/storage/images/' + item.name" class="product-img"/>
                 </a>
             </div>
         </div>
@@ -11,7 +11,7 @@
     <div thumbsSlider="" class="swiper mySwiper">
         <div class="swiper-wrapper">
             <div class="swiper-slide" v-for="(item, index) in dataArrRet" :key="index">
-                <img :src="'storage/images/' + item.name" class="product-img_mini"/>
+                <img :src="'/storage/images/' + item.name" class="product-img_mini"/>
             </div>
         </div>
     </div>

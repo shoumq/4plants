@@ -1,12 +1,12 @@
 <template>
-    <div className="product-item">
-        <img className="product-item__img"
-             :src="image" alt="">
-        <div className="container">
-            <div className="product-item__title">{{ title }}</div>
-            <div className="product-item__desc">{{ desc }}</div>
-            <div className="product-item__price">{{ price }} ₽</div>
-            <button className="btn btn-green" @click="zakaz">Подробнее</button>
+    <div class="product-item">
+        <img class="product-item__img"
+             :src="'/storage/images/' + image" alt="">
+        <div class="container">
+            <div class="product-item__title">{{ title }}</div>
+            <div class="product-item__desc">{{ desc }}</div>
+            <div class="product-item__price">{{ price }} ₽</div>
+            <button class="btn btn-green" @click="zakaz">Подробнее</button>
         </div>
     </div>
 </template>
@@ -47,6 +47,8 @@ export default {
             width: 100%
             overflow: hidden
             border-radius: 10rem 10rem 0 0
+            height: 270rem
+            object-fit: cover
 
         &__title
             font-size: 27rem

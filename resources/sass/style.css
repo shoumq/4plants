@@ -98,4 +98,69 @@ body {
   margin-top: 5rem;
 }
 
+.profile .btn {
+  margin-top: 30rem;
+  font-size: 17rem;
+  padding: 7rem 35rem;
+}
+
+.admin table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+.admin td, .admin th {
+  border: 1px solid #dddddd;
+  background: white;
+  text-align: left;
+  padding: 8px;
+}
+.admin tr:nth-of-type(1) {
+  background-color: #dddddd;
+}
+.admin-flex {
+  margin-top: 30rem;
+  display: flex;
+  gap: 20rem;
+  align-items: flex-start;
+}
+.admin-flex__search {
+  width: 300rem;
+  border: 1px solid #dddddd;
+  background: white;
+  padding: 10rem;
+}
+.admin-flex__search-title {
+  font-weight: 700;
+  margin-bottom: 10rem;
+}
+.admin-flex__search label {
+  font-size: 14rem;
+}
+.admin-flex__search input {
+  outline: none;
+  border: 1px solid darkgray;
+  padding: 4rem;
+  font-size: 18rem;
+  width: min(100% - 10rem);
+}
+.admin-flex__search .btn-green {
+  margin-top: 10rem;
+}
+
+.login label, .login .fs, .login .invalid-feedback {
+  font-size: 16rem;
+}
+.login input {
+  font-size: 16rem;
+  padding: 3rem;
+  outline: none;
+}
+
+.product-scroll {
+  width: 500rem;
+  overflow-y: scroll;
+  height: 600rem;
+}
+
 /*# sourceMappingURL=style.css.map */
