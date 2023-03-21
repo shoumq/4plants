@@ -118,6 +118,16 @@ body {
 .admin tr:nth-of-type(1) {
   background-color: #dddddd;
 }
+.admin .add-input {
+  display: block !important;
+}
+.admin .add-label {
+  display: block !important;
+  margin-bottom: 10rem;
+}
+.admin .add-btn {
+  margin-top: 20rem;
+}
 .admin-flex {
   margin-top: 30rem;
   display: flex;
@@ -161,6 +171,22 @@ body {
   width: 500rem;
   overflow-y: scroll;
   height: 600rem;
+}
+
+select {
+  padding: 4rem 10rem;
+  outline: none;
+  border: 1px solid darkgray;
+  min-width: 300rem;
+}
+
+.selectim {
+  margin-top: 50rem;
+}
+
+.form-sim {
+  display: flex;
+  gap: 30rem;
 }
 
 /*# sourceMappingURL=style.css.map */

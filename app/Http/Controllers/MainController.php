@@ -31,7 +31,8 @@ class MainController extends Controller
         return view('product', compact('pr', 'image'));
     }
 
-    public function create() {
+    public function create()
+    {
         $allImages = Image::all();
         return view('test', compact('allImages'));
     }
@@ -50,5 +51,19 @@ class MainController extends Controller
         $photo->save();
 
         return redirect()->back();
+    }
+
+    public function products()
+    {
+        $products = Product::all();
+        return view('products', compact('products'));
+    }
+
+    public function productsSearchFun(Request $request)
+    {
+        $product = Product::where('title', 'LIKE', "%{$request->title}%")
+            ->where('desc', 'LIKE', "%{$request->desc}%")
+            ->get();
+        return json_encode($product);
     }
 }

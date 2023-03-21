@@ -34,7 +34,6 @@ export default {
             this.priceData = parseFloat(this.price) * this.kolvo;
             if (this.kolvo <= 1) {
                 this.kolvo = 1;
-                this.priceData = 300;
             }
         }
     },

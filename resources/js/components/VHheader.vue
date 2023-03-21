@@ -26,7 +26,7 @@
     <div class="header-under">
         <div class="container">
             <div class="c1">
-                <a href="#" class="header-under__item">Товары</a>
+                <a href="/products" class="header-under__item">Товары</a>
                 <a href="#" class="header-under__item">О нас</a>
                 <a href="#" class="header-under__item">Контакты</a>
             </div>

@@ -87,9 +87,169 @@ class AdminController extends Controller
     public function productEdit($id)
     {
         if (Auth::check()) {
-            $image = Image::where('id_product', $id)->get();
-            $pr = Product::where('id', $id)->get();
-            return view('productedit', compact('pr', 'image'));
+            if (Auth::user()->admin == 1) {
+                $image = Image::where('id_product', $id)->get();
+                $pr = Product::where('id', $id)->get();
+                return view('productedit', compact('pr', 'image'));
+            } else {
+                return redirect('/');
+            }
+        } else {
+            return redirect('/');
+        }
+    }
+
+    public function productAdd(Request $request)
+    {
+        if (Auth::check()) {
+            if (Auth::user()->admin == 1) {
+                $image = Image::all();
+                $pr = Product::all();
+                return view('productadd', compact('image', 'pr'));
+            } else {
+                return redirect('/');
+            }
+        } else {
+            return redirect('/');
+        }
+    }
+
+    public function imageAdd(Request $request)
+    {
+        if (Auth::check()) {
+            if (Auth::user()->admin == 1) {
+                $products = Product::all();
+                $images = Image::all();
+                return view('adminimage', compact('products', 'images'));
+            } else {
+                return redirect('/');
+            }
+        } else {
+            return redirect('/');
+        }
+    }
+
+
+    public function imageAddFun(Request $request, $id)
+    {
+        if (Auth::check()) {
+            if (Auth::user()->admin == 1) {
+                $name = $request->file('image')->getClientOriginalName();
+                $size = $request->file('image')->getSize();
+
+                $request->file('image')->storeAs('public/images/', $name);
+
+                $photo = new Image();
+                $photo->name = $name;
+                $photo->size = $size;
+                $photo->id_product = $id;
+                $photo->save();
+
+                return redirect()->back();
+            } else {
+                return redirect('/');
+            }
+        } else {
+            return redirect('/');
+        }
+    }
+
+    public function imageFind(Request $request, $id) {
+        $images = Image::where('id_product', $id)->get();
+        return json_encode($images);
+    }
+
+    public function productAddFun(Request $request)
+    {
+        if (Auth::check()) {
+            if (Auth::user()->admin == 1) {
+                $name = $request->file('image')->getClientOriginalName();
+                $size = $request->file('image')->getSize();
+
+                $request->file('image')->storeAs('public/images/', $name);
+
+                $product = new Product();
+                $product->title = $request->title;
+                $product->desc = $request->desc;
+                $product->price = $request->price;
+                $product->active = 1;
+                $product->image = $name;
+                $product->save();
+
+                $photo = new Image();
+                $photo->name = $name;
+                $photo->size = $size;
+                $photo->id_product = $product->id;
+                $photo->save();
+
+                return redirect()->back();
+            } else {
+                return redirect('/');
+            }
+        } else {
+            return redirect('/');
+        }
+    }
+
+    public function deleteProduct($id)
+    {
+        if (Auth::check()) {
+            if (Auth::user()->admin == 1) {
+                Product::destroy($id);
+                return json_encode(array("state" => "ok"));
+            } else {
+                return redirect('/');
+            }
+        } else {
+            return redirect('/');
+        }
+    }
+
+    public function imageDelFun($id) {
+        if (Auth::check()) {
+            if (Auth::user()->admin == 1) {
+                Image::destroy($id);
+                return redirect()->back();
+            } else {
+                return redirect('/');
+            }
+        } else {
+            return redirect('/');
+        }
+    }
+
+    public function productEditFun(Request $request)
+    {
+        if (Auth::check()) {
+            if (Auth::user()->admin == 1) {
+                if ($request->hasFile('image')) {
+                    $name = $request->file('image')->getClientOriginalName();
+                    $size = $request->file('image')->getSize();
+                    $request->file('image')->storeAs('public/images/', $name);
+
+                    $product = Product::find($request->id);
+                    $product->title = $request->title;
+                    $product->desc = $request->desc;
+                    $product->price = $request->price;
+                    $product->image = $name;
+                    $product->save();
+
+                    $photo = new Image();
+                    $photo->name = $name;
+                    $photo->size = $size;
+                    $photo->id_product = $product->id;
+                    $photo->save();
+                } else {
+                    $product = Product::find($request->id);
+                    $product->title = $request->title;
+                    $product->desc = $request->desc;
+                    $product->price = $request->price;
+                    $product->save();
+                }
+                return redirect()->back();
+            } else {
+                return redirect('/');
+            }
         } else {
             return redirect('/');
         }

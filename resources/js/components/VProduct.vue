@@ -2,10 +2,12 @@
     <div class="product-item">
         <img class="product-item__img"
              :src="'/storage/images/' + image" alt="">
-        <div class="container">
-            <div class="product-item__title">{{ title }}</div>
-            <div class="product-item__desc">{{ desc }}</div>
-            <div class="product-item__price">{{ price }} ₽</div>
+        <div class="container container-flex">
+            <div>
+                <div class="product-item__title">{{ title }}</div>
+                <div class="product-item__desc">{{ descData }}</div>
+                <div class="product-item__price">{{ price }} ₽</div>
+            </div>
             <button class="btn btn-green" @click="zakaz">Подробнее</button>
         </div>
     </div>
@@ -22,26 +24,35 @@ export default {
         image: String,
     },
 
-    methods: {
-        zakaz() {
-            // window.alert(1)
+    data() {
+        return {
+            descData: this.desc
         }
+    },
+
+    methods: {
+        assertMaxChars () {
+            if (this.descData.length >= 76) {
+                this.descData = this.descData.substring(0,76) + '...';
+            }
+        }
+    },
+
+    mounted() {
+        this.assertMaxChars();
     }
 }
 </script>
 
 <style scoped lang="sass">
 .product
-    &-flex
-        display: grid
-        grid-template-columns: repeat(3, 1fr)
-        gap: 30rem
-        margin-top: 50rem
-
     &-item
         box-shadow: 0 0 5rem #b6b6b6
         border-radius: 10rem
         padding-bottom: 15rem
+        display: grid
+        grid-gap: 1px
+        grid-template-rows: 1fr 158rem 36rem
 
         &__img
             width: 100%
@@ -59,6 +70,9 @@ export default {
             font-size: 17rem
             font-weight: 500
             color: #333333
+            height: 50rem
+            overflow: hidden
+            text-overflow: ellipsis
 
         &__price
             margin-top: 10rem

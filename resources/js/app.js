@@ -13,6 +13,8 @@ import VProfile from "./components/VProfile.vue";
 import VAdminNav from "./components/VAdminNav.vue";
 import VUserSearch from "./components/VUserSearch.vue";
 import VPrSearch from "./components/VPrSearch.vue";
+import VAddImage from "./components/VAddImage.vue";
+import VProductsAll from "./components/VProductsAll.vue";
 
 app.component('v-header', VHheader);
 app.component('v-slider', VSlider);
@@ -24,6 +26,8 @@ app.component('v-profile', VProfile);
 app.component('v-admin-nav', VAdminNav);
 app.component('v-user-search', VUserSearch);
 app.component('v-pr-search', VPrSearch);
+app.component('v-add-image', VAddImage);
+app.component('v-products-all', VProductsAll);
 
 // app.use(router)
 

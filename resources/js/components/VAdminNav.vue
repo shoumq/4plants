@@ -2,6 +2,8 @@
     <div class="admin_nav">
         <a href="/admin/users">Пользователи</a>
         <a href="/admin/products">Товары</a>
+        <a href="/admin/add_products">Добавить товар</a>
+        <a href="/admin/api/add_images">Добавить картинки</a>
     </div>
 </template>
 
